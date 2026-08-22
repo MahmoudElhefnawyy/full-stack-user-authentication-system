@@ -12,6 +12,12 @@ async function bootstrap() {
   // Normalises all HTTP errors to a consistent { statusCode, message, path, timestamp } shape
   app.useGlobalFilters(new HttpExceptionFilter());
 
+  // Allows the frontend origin to call this API (required for browser cross-origin requests)
+  app.enableCors({
+    origin: configService.get<string>('FRONTEND_URL', 'http://localhost:5173'),
+    credentials: true,
+  });
+
   // Activates class-validator decorators globally and strips unknown request fields
   app.useGlobalPipes(
     new ValidationPipe({
