@@ -7,7 +7,7 @@ export default function AppPage() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState<ProfileResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error] = useState('');
 
   useEffect(() => {
     authService
