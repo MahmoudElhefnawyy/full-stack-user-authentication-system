@@ -7,8 +7,8 @@ export const authService = {
   },
 
   async signIn(data: SignInRequest): Promise<void> {
-    const res = await api.post<{ access_token: string }>('/auth/signin', data);
-    localStorage.setItem('access_token', res.data.access_token);
+    const res = await api.post<{ accessToken: string }>('/auth/signin', data);
+    localStorage.setItem('access_token', res.data.accessToken);
   },
 
   async getProfile(): Promise<ProfileResponse> {
