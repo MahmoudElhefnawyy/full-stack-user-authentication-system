@@ -1,5 +1,7 @@
 # Full Stack Auth App
 
+[![CI](https://github.com/MahmoudElhefnawyy/full-stack-user-authentication-system/actions/workflows/ci.yml/badge.svg)](https://github.com/MahmoudElhefnawyy/full-stack-user-authentication-system/actions/workflows/ci.yml)
+
 A user authentication module built with React + NestJS. Covers sign up, sign in, and a protected home page.
 
 ## Tech Stack
@@ -10,7 +12,7 @@ A user authentication module built with React + NestJS. Covers sign up, sign in,
 | Forms | react-hook-form + Zod |
 | Backend | NestJS, TypeScript |
 | Database | MongoDB (Mongoose) |
-| Auth | JWT (RS256), bcrypt |
+| Auth | JWT (HS256), bcrypt |
 | Docs | Swagger / OpenAPI |
 
 ## Project Structure
@@ -85,3 +87,13 @@ Frontend runs at `http://localhost:5173`
 | GET | `/auth/profile` | Bearer token | Get current user profile |
 
 Full interactive docs available at `/api` when the server is running.
+
+## Testing
+
+```bash
+cd server
+npm test              # run all unit tests
+npm run test:cov      # with coverage report
+```
+
+The `AuthService` is fully unit-tested (7 tests) covering sign up, sign in, password hashing, and profile retrieval. All external dependencies (MongoDB, JWT) are mocked so no database connection is required to run the tests.
